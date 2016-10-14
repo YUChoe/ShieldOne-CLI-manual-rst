@@ -1,6 +1,7 @@
 system 명령 모드
 ===========================
 * OS 수준(ifconfig. route, ip, dhcp?)의 명령어들의 모음
+
 ::
 
     shieldone@fw-test> system
@@ -13,7 +14,12 @@ system 명령 모드
       show    Show OS related commands
       trace   Follow System log
 
+
+
 .. index:: 리부팅, reboot
+
+.. _reload:
+
 reload
 ^^^^^^
 * 장비를 reboot 시키는 명령어
@@ -27,6 +33,7 @@ IP 관련 명령
 ip addr
 ---------------------
 * 이더넷 장치에 할당 된 모든 아이피 정보를 화면에 출력합니다.
+
 ::
 
     shieldone@fw-test/system> ip addr
@@ -70,6 +77,7 @@ ip addr
            valid_lft forever preferred_lft forever
     59: ipsec1: <NOARP> mtu 0 qdisc noop state DOWN group default qlen 10
         link/void
+
 * 장비의 Spec.과 설정에 따라 위의 내용을 다를 수 있습니다.
 
 ip route show
@@ -78,38 +86,46 @@ ip route show
 * 각 WAN 장치별로 할당 된 라우팅 정보도 같이 확인 할 수 있습니다.
 
 .. index:: routing cache
+
 ip route flush all
 ---------------------
 * 장비에 설정되어 있는 routing cache 를 모두 삭제 합니다.
 
 ip route flush cache {IP/PRE}
----------------------
+------------------------------
 * 장비에 설정되어 있는 routing cache 중 선택한 네트워크에 대한 것을 삭제 합니다.
 
 .. index:: gre
+
 ip gre
 ---------------------
 * GRE 설정 정보를 화면에 출력합니다.
 
 
 .. index:: interface, ifconfig, ethtool, link, 링크
+
 인터페이스 정보 열람 관련 명령
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. index:: ifconfig, ipconfig
+
 show interface {name}
 ---------------------
 
 .. index:: ethtool, 링크, link, auto-neg
+
 show interface link {name}
----------------------
+--------------------------
 
 .. index:: arp, service, LISTEN, cache
+
 정보 열람 관련 명령
 ^^^^^^^^^^^^^^^^^^^
+
 show arp
 ---------------------
 * 시스템의 ARP 캐시 테이블을 화면에 출력 합니다.
+
 ::
 
     shieldone@fw-test/system> show arp
@@ -123,11 +139,13 @@ show arp
     192.168.20.91            ether   06:00:00:00:00:54   C                     eth1
     192.168.20.202           ether   00:00:00:00:00:30   C                     eth1
     10.112.82.25             ether   e6:00:00:00:00:5c   C                     eth1
+
 * --filter 옵션을 이용하여 필요한 내용만 선택하여 화면에 출력할 수 있습니다.
 
 show route
 ---------------------
 * 시스템의 Kernel IP routing table 을 화면에 출력 합니다.
+
 ::
 
     shieldone@fw-test/system> show route
@@ -146,11 +164,12 @@ show route cache
 ---------------------
 
 show listening-service
----------------------
+-----------------------
 
 show sysload
 ---------------------
 * 현재 CPU/메모리/스토리지 사용량 출력
+
 ::
 
     shieldone@fw-test/system> show sysload
@@ -162,7 +181,7 @@ show ipsec status
 ---------------------
 
 System 로그 열람 관련 명령
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 show log {filename}
 ---------------------
@@ -171,7 +190,7 @@ show log {filename}
 
 
 System 로그 추적 관련 명령
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 trace {filename}
 ----------------
